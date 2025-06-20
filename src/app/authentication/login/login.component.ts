@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SpinnerComponent } from '../../Shared/Loading-spinner/spinner.component';
+import { SpinnerComponent } from '../../shared/loading-spinner/spinner.component';
 import { Router } from '@angular/router';
 import { loginInput } from '../models/loginInput';
 import { AuthenticationService } from '../Authentication.service';

@@ -4,7 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { DespesasService } from '../despesas.service'; 
 import { criarDespesaDto } from '../Models/DTOs/criarDespesa.dto';
 import { editarDespesaDto } from '../Models/DTOs/editarDespesa.dto';
-import { AuthenticationService } from '../../Autentication/Authentication.service'; 
+import { AuthenticationService } from '../../authentication/Authentication.service'; 
 
 @Component({
   selector: 'app-despesa-form',

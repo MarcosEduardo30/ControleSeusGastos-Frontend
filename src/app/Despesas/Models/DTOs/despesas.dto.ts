@@ -1,4 +1,4 @@
-import { despesa } from "./despesa.model";
+import { despesa } from "../despesa.model";
 
 export type DespesasDto = {
   status: number;

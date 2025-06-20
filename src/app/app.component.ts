@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FormDespesaService } from './Despesas/despesa-form/despesa-form.service'; 
-import { DespesaFormComponent } from './Despesas/despesa-form/despesa-form.component';
-import { AuthenticationService } from './Autentication/Authentication.service';
+import { FormDespesaService } from './despesas/despesa-form/despesa-form.service'; 
+import { DespesaFormComponent } from './despesas/despesa-form/despesa-form.component';
+import { AuthenticationService } from './authentication/Authentication.service';
 
 @Component({
   selector: 'app-root',

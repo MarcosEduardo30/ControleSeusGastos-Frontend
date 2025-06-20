@@ -5,7 +5,7 @@ import { tap } from "rxjs";
 import { DespesasDto } from "./Models/DTOs/despesas.dto";
 import { criarDespesaDto } from "./Models/DTOs/criarDespesa.dto";
 import { editarDespesaDto } from "./Models/DTOs/editarDespesa.dto";
-import { AuthenticationService } from "../Autentication/Authentication.service";
+import { AuthenticationService } from "../authentication/Authentication.service";
 
 @Injectable({providedIn: "root"})
 export class DespesasService{

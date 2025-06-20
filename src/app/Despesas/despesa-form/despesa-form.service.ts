@@ -1,5 +1,5 @@
 import { Injectable, signal } from "@angular/core";
-import { despesa } from "../Despesas/Models/despesa.model";
+import { despesa } from "../Models/despesa.model";
 
 @Injectable({providedIn: "root"})
 export class FormDespesaService{

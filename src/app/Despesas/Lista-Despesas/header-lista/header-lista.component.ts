@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AuthenticationService } from '../../../Autentication/Authentication.service';
+import { AuthenticationService } from '../../../authentication/Authentication.service';
 import { FormDespesaService } from '../../despesa-form/despesa-form.service';
 
 @Component({

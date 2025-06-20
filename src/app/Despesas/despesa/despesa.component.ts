@@ -2,7 +2,7 @@ import { Component, DestroyRef, inject, Input } from '@angular/core';
 import { despesa } from '../Models/despesa.model';
 import { DatePipe } from '@angular/common';
 import { DespesasService } from '../despesas.service';
-import { FormDespesaService } from '../../despesa-form/despesa-form.service';
+import { FormDespesaService } from '../despesa-form/despesa-form.service';
 
 @Component({
   selector: 'app-despesa',

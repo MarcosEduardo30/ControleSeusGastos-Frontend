@@ -1,7 +1,7 @@
 import { CanMatchFn, RedirectCommand, Router, Routes } from '@angular/router';
-import { LoginComponent } from './Autentication/login/login.component';
+import { LoginComponent } from './authentication/login/login.component';
 import { inject } from '@angular/core';
-import { ListaDespesasComponent } from './Despesas/Lista-Despesas/lista-despesas.component';
+import { ListaDespesasComponent } from './despesas/lista-despesas/lista-despesas.component';
 
 
 const isAuthenticatedCanMatch: CanMatchFn = (route, segments) => {
