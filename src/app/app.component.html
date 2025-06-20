@@ -1,5 +1,5 @@
-<div class="layout">
-  <div style="flex-grow: 1;"></div>
-  <app-lista-despesas style="flex-grow: 2;"></app-lista-despesas>
-  <div style="flex-grow: 1;"></div>
-</div>
+<router-outlet />
+
+@if (this.formDespesaService.isFormOpen()) {
+  <app-despesa-form/>
+}

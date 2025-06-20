@@ -1,0 +1,34 @@
+<div class="form-container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="login-form">
+            @if(isLoading){
+                <app-spinner></app-spinner>
+            }
+            @if (!isLoading) {
+                <h1>Login</h1>
+                <div class="input-container">   
+                    <input 
+                        class="input-text" 
+                        type="text" [(ngModel)]="loginObj.username" 
+                        name="usuario"
+                        required>
+                    <label>Usuario</label>
+                </div>
+
+                <div class="input-container">
+                    <input 
+                        class="input-text" type="password" 
+                        [(ngModel)]="loginObj.password" 
+                        name="senha"
+                        required>
+                    <label for="senha">Senha</label>
+                </div>
+                @if (errorMessage != null) {
+                    <p class="error">{{errorMessage}}</p>
+                }
+                <button type="submit">Entrar</button>
+            }
+        </div>
+    </form>
+</div>
+

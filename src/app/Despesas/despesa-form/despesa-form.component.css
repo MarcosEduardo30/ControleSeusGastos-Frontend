@@ -1,0 +1,63 @@
+.backdrop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+dialog{
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 0 1em rgb(0, 0, 0, 0.9);
+    width: 65%;
+    height: 60%;
+    top: 15%;
+
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    margin-bottom: 1rem;
+}
+
+.form-item{
+    width: 100%;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.form-label{
+    display: block;
+    font-size: larger;
+
+}
+
+.form-input{
+    width: 60%;
+    height: 45%;
+    font-size: large;
+    text-align: center;
+    /* border: 1px solid black; */
+    border: none;
+    border-radius: .5rem;
+    background-color: rgba(211, 211, 211, 0.4);
+}
+
+.form-input.ng-touched.ng-dirty.ng-invalid{
+    background-color: rgb(255, 177, 177);
+}
+
+form{
+    height: 100%;
+    text-align: center;
+}
+
+button{
+    border-radius: .5rem;
+    font-size: 20px;
+}

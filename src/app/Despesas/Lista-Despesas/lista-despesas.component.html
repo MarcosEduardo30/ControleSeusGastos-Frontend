@@ -1,0 +1,21 @@
+<div class="list-container">
+    <div>
+        <app-header-lista/>
+    </div>
+    <div class="lista">
+        @if (despesas().length > 0) {
+            <ul>
+                @for (desp of despesas(); track $index) {
+                    <li>
+                        <app-despesa [Despesa]="desp"/>
+                    </li>
+                }
+            </ul>
+        }
+        @else {
+            <h2>Nenhuma despesa encontrada!</h2>
+        }   
+    </div>
+
+</div>
+

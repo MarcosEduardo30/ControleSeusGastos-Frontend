@@ -1,0 +1,61 @@
+<div [class.backdrop]="isFormOpen()">
+    <dialog [open]="isFormOpen()"> 
+        <form (ngSubmit)="onSubmit()" #despesa_form="ngForm">
+
+            <div class="form-container">
+                <div class="form-item">
+                    <label for="valor" class="form-label">Valor: </label>
+                    <input 
+                        id="valor" 
+                        class="form-input" 
+                        type="number" 
+                        name="valor" 
+                        [(ngModel)]="valor"
+                        required
+                        min="0"
+                    >
+                </div>
+                
+                <div class="form-item">
+                    <label for="Nome" class="form-label">Nome: </label>
+                    <input 
+                        id="Nome" 
+                        class="form-input" 
+                        type="text" 
+                        name="nome" 
+                        [(ngModel)]="nome"
+                        required
+                        minlength="3"
+                    >
+                </div>
+                
+                <div class="form-item">
+                    <label for="Descricao" class="form-label">Descricao: </label>
+                    <input 
+                        id="Descricao"  
+                        class="form-input" 
+                        type="text" 
+                        name="descricao" 
+                        [(ngModel)]="descricao"
+                    >
+                </div>
+                
+                <div class="form-item">
+                    <label for="Data" class="form-label">Data: </label>
+                    <input 
+                        id="Data" 
+                        class="form-input" 
+                        type="date" 
+                        name="data" 
+                        [(ngModel)]="data"
+                        required
+                    >
+                </div>
+            </div>
+
+
+            <button type="submit">Salvar</button>
+            <button type="button" (click)="onFechar()">fechar</button>
+        </form>
+    </dialog>
+</div>

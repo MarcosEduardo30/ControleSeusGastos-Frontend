@@ -1,0 +1,15 @@
+<div class="despesa-container">
+    <div>
+        <p>Nome: {{Despesa.nome}}</p>
+    </div>
+    <div>
+        <p>Descricao: {{Despesa.descricao}}</p>
+    </div>
+    <div class="despesa-footer">
+        <p style="flex-grow: 1;">Valor: {{Despesa.valor}}</p>
+        <p style="flex-grow: 1;">Data: {{Despesa.data | date: "dd/MM/yyyy"}}</p>
+        <div style="flex-grow: 3;"> </div>
+        <button style="flex-grow: 1;" (click)="onEditar()">Editar</button>
+        <button style="flex-grow: 1;" (click)="onExcluir()">Excluir</button>
+    </div>
+</div>
