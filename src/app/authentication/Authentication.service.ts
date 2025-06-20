@@ -35,7 +35,7 @@ export class AuthenticationService{
     }
 
     refreshToken(){
-        const refreshToken = localStorage.getItem('RefreshToken');
+        const refreshToken = this.getRefreshToken();
         return this.httpClient
             .post<{"token": "", "usuarioId": number, "refreshToken": ""}>(`https://localhost:7039/Usuarios/LoginRefreshToken/${refreshToken}`, null)
             .pipe(
@@ -52,7 +52,7 @@ export class AuthenticationService{
     }
 
     autoLogin(){
-        var token = localStorage.getItem('jwtToken');
+        var token = this.getAuthToken();
         var userId = localStorage.getItem('UserId');
         if (token != null && userId != null){
             const usuario = new user(token, Number(userId));
@@ -67,5 +67,13 @@ export class AuthenticationService{
         localStorage.removeItem('UserId');
         localStorage.removeItem('RefreshToken');
         this.router.navigate(["/Login"]);
+    }
+
+    getAuthToken(){
+        return localStorage.getItem('jwtToken')
+    }
+
+    getRefreshToken(){
+        return localStorage.getItem('RefreshToken')
     }
 }

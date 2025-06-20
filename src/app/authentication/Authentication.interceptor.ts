@@ -1,57 +1,55 @@
-import { HttpErrorResponse, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
-import { inject } from '@angular/core';
-import { catchError, switchMap, throwError } from 'rxjs';
+import { HttpErrorResponse, HttpEvent, HttpHandler,
+         HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { catchError, Observable, switchMap, throwError } from 'rxjs';
 import { AuthenticationService } from './Authentication.service';
 import { Router } from '@angular/router';
 
-export const customInterceptor: HttpInterceptorFn = (req, next) => {
-  const token = localStorage.getItem('jwtToken')
-  const clonedRequest = req.clone({
-    setHeaders:{
-      Authorization: 'Bearer ' + token
-    }}
-  );
+@Injectable()
+export class AuthenticationInterceptor implements HttpInterceptor {
 
+  authService = inject(AuthenticationService);
+  router = inject(Router);
   
-  const authService = inject(AuthenticationService);
-  const router = inject(Router);
-  return next(clonedRequest)
-  .pipe(
-    catchError(x => 
-      {
-        
-        return HandleError(x, req, next, authService, router)
-      }));
-};
+  intercept(req: HttpRequest<any>, handler: HttpHandler): Observable<HttpEvent<any>>
+  {
+    const token = this.authService.getAuthToken();
 
+    const clonedRequest = req.clone({ setHeaders : { Authorization: 'Bearer ' + token }});
 
-export function HandleError(
-  error: HttpErrorResponse, 
-  req: HttpRequest<any>, 
-  next: HttpHandlerFn,
-  authService: AuthenticationService,
-  router: Router
-)
-{
-  if (error && error.status == 401){
-    return authService.refreshToken().pipe(
-      switchMap((x: any) => 
-      {
-          const token = localStorage.getItem('jwtToken')
-          const clonedRequest = req.clone({
-              setHeaders:{
-                    Authorization: 'Bearer ' + token
-              }
-            });
-        return next(clonedRequest);
-      }),
-      catchError(()=>
-      {
-        return throwError(()=>{
-          router.navigate(["/Login"])
-        })
-      })
-    )
+    return handler
+      .handle(clonedRequest)
+      .pipe(
+        catchError(x => { return this.HandleError(x, req, handler) })
+      );
   }
-  return throwError(() => new Error("?"));
+
+  private HandleError(
+    error: HttpErrorResponse, 
+    req: HttpRequest<any>, 
+    next: HttpHandler)
+  {
+    if (error && error.status == 401)
+    {
+      return this.authService
+        .refreshToken()
+          .pipe(
+            switchMap((x: any) => 
+            {
+              const token = this.authService.getAuthToken();
+              const clonedRequest = req
+                .clone({ setHeaders:{ Authorization: 'Bearer ' + token} });
+              return next.handle(clonedRequest);
+            }),
+            catchError(()=>
+              {
+                return throwError(()=>{ 
+                  this.authService.logout();
+                  this.router.navigate(["/Login"]);
+                })
+              })
+          )
+    }
+    return throwError(() => new Error("?"));
+  }
 }

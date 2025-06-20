@@ -6,7 +6,7 @@ import { AuthenticationService } from './authentication/Authentication.service';
 
 @Component({
   selector: 'app-root',
-  imports: [DespesaFormComponent, RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -19,9 +19,5 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.authService.autoLogin();
-  }
-
-  onTesteClick(){
-    this.formDespesaService.openForm();
   }
 }
