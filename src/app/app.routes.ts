@@ -2,6 +2,7 @@ import { CanMatchFn, RedirectCommand, Router, Routes } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { inject } from '@angular/core';
 import { ListaDespesasComponent } from './despesas/lista-despesas/lista-despesas.component';
+import { RegisterComponent } from './authentication/signup/signup.component';
 
 
 const isAuthenticatedCanMatch: CanMatchFn = (route, segments) => {
@@ -18,6 +19,9 @@ const isAuthenticatedCanMatch: CanMatchFn = (route, segments) => {
 export const routes: Routes = [
     {
         path: "Login", component: LoginComponent
+    },
+    {
+        path:"Signup", component: RegisterComponent
     },
     {
         path: "Despesas", component: ListaDespesasComponent, canMatch: [isAuthenticatedCanMatch]

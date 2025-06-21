@@ -5,11 +5,20 @@
                 <app-spinner></app-spinner>
             }
             @if (!isLoading) {
-                <h1>Login</h1>
+                <h1>Criar nova conta</h1>
                 <div class="input-container">   
                     <input 
                         class="input-text" 
-                        type="text" [(ngModel)]="loginObj.username" 
+                        type="text" [(ngModel)]="registerObj.name" 
+                        name="name"
+                        required>
+                    <label>Nome</label>
+                </div>
+
+                <div class="input-container">   
+                    <input 
+                        class="input-text" 
+                        type="text" [(ngModel)]="registerObj.username" 
                         name="usuario"
                         required>
                     <label>Usuario</label>
@@ -18,7 +27,7 @@
                 <div class="input-container">
                     <input 
                         class="input-text" type="password" 
-                        [(ngModel)]="loginObj.password" 
+                        [(ngModel)]="registerObj.password" 
                         name="senha"
                         required>
                     <label for="senha">Senha</label>
@@ -26,10 +35,10 @@
                 @if (errorMessage != null) {
                     <p class="error">{{errorMessage}}</p>
                 }
-                <button type="submit">Entrar</button>
-                <a [routerLink]="['/Signup']" routerLinkActive="router-link-active" >Criar conta</a>
+                <button type="submit">Criar Conta</button>
             }
         </div>
     </form>
 </div>
+
 

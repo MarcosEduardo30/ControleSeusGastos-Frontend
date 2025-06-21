@@ -4,6 +4,7 @@ import { loginInput } from "./models/loginInput";
 import { user } from "./models/user"; 
 import {ReplaySubject, tap } from "rxjs";
 import { Router } from "@angular/router";
+import { signupInput } from "./models/signupInput";
 
 @Injectable({providedIn: "root"})
 export class AuthenticationService{
@@ -59,6 +60,11 @@ export class AuthenticationService{
             this.usuario.next(usuario);
             this.router.navigate(["/Despesas"]);
         }
+    }
+
+    signup(signupInput: signupInput){
+        return this.httpClient
+            .post("https://localhost:7039/Usuarios/", signupInput)
     }
     
     logout(){

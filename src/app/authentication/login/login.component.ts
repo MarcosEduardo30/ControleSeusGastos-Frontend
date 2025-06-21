@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SpinnerComponent } from '../../shared/loading-spinner/spinner.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { loginInput } from '../models/loginInput';
 import { AuthenticationService } from '../Authentication.service';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, SpinnerComponent],
+  imports: [FormsModule, SpinnerComponent, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -32,7 +32,7 @@ export class LoginComponent {
           this.router.navigate(["/Despesas"]);
         },
         error: (error: any) => {
-          this.errorMessage = error.message;
+          this.errorMessage = "Usuário ou senha inválidos";
           this.isLoading = false;
       }}))
   }

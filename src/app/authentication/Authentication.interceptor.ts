@@ -50,6 +50,6 @@ export class AuthenticationInterceptor implements HttpInterceptor {
               })
           )
     }
-    return throwError(() => new Error("?"));
+    return throwError(error);
   }
 }
