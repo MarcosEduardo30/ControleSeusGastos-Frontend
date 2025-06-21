@@ -59,5 +59,7 @@ form{
 
 button{
     border-radius: .5rem;
+    margin-left: 10px;
     font-size: 20px;
+    cursor: pointer;
 }

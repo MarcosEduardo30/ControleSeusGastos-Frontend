@@ -27,5 +27,9 @@ export class ListaDespesasComponent implements OnInit{
           this.destroyRef.onDestroy(() => sub.unsubscribe())
       }
 
+      onCriarClick(){
+        this.formDespesaService.openForm();
+      }
+
 
 }

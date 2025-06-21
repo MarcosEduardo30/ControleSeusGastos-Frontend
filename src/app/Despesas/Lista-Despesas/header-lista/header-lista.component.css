@@ -1,0 +1,19 @@
+.header-buttons{
+    text-align: center;
+}
+
+
+.logout-img{
+    float: right;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 600px) {
+    .logout-img{
+        margin-top: 15px;
+    }
+}
