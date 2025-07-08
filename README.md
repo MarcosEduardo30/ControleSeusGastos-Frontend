@@ -1,59 +1,63 @@
-# ControleSeusGastos
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MarcosEduardo30/Banners/refs/heads/main/Controle_seus_gastos%20(2).png">
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/C%23-blue">
+  <img src="https://img.shields.io/badge/asp.net-darkblue">
+</p>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
 
-## Development server
 
-To start a local development server, run:
+<h1> Sobre o projeto</h1>
+<p>
+  Este projeto é uma aplicação web para controle de gastos financeiros pessoais. O sistema utiliza uma API rest para fazer o registro de usuários e permitir que eles cadastrem despesas de forma fácil e intuitiva.
+</p>
+<p>Este repositório diz respeito ao frontend da aplicação, o backend pode ser encontrado em: https://github.com/MarcosEduardo30/ControleSeusGastos
 
-```bash
-ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+<br/>
+<h1>Tecnologias utilizadas</h1>
 
-## Code scaffolding
+**Backend:**
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* ASP.NET 8
+* Entity Framework>
+* Arquitetura Limpa
+* Postgresql
+* Tokens JWT e Refresh Tokens
+* AWS
 
-```bash
-ng generate component component-name
-```
+**Frontend:**
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+  * Type Script
+  * Angular
 
-```bash
-ng generate --help
-```
+<h1>Melhorias futuras</h1>
+<ul>
+  <li>Dashboard com dados do usuário</li>
+  <li>Filtragem de gastos por categoria e periodo</li>
+  <li>Maior abrangencia nos testes automatizados</li>
+</ul>
 
-## Building
+<h1>Funcionalidades</h1>
 
-To build the project run:
+* Sistema completo de login e autenticação usando tokens JWT
+* API REST para criação e edição de despesas pessoais
+* Persistencia dos dados em banco de dados relacional utilizando o Entity Framework
 
-```bash
-ng build
-```
+<h1>Instalação Local</h1>
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+* Instale a SDK do .NET  <a href="https://dotnet.microsoft.com/pt-br/download/dotnet"> (Link) </a>
 
-## Running unit tests
+* Faça o download ou um clone desse projeto
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+* Na pasta principal do projeto execute o comando
+``
+dotnet run
+``
 
-```bash
-ng test
-```
+* O projeto estará disponível através da URL `http://localhost:5054`
 
-## Running end-to-end tests
+## Licença
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<a href="https://github.com/MarcosEduardo30/BookFinder/blob/master/LICENSE">MIT</a>
