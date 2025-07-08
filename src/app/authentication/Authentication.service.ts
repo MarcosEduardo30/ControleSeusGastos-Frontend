@@ -21,7 +21,7 @@ export class AuthenticationService{
 
     login(loginInput: loginInput){
         return this.httpClient
-            .post<{"token": "", "usuarioId": number, "refreshToken": ""}>("https://localhost:7039/Usuarios/Login", loginInput)
+            .post<{"token": "", "usuarioId": number, "refreshToken": ""}>("http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Usuarios/Login", loginInput)
             .pipe(
                 tap({
                     next: (response) => {
@@ -38,7 +38,7 @@ export class AuthenticationService{
     refreshToken(){
         const refreshToken = this.getRefreshToken();
         return this.httpClient
-            .post<{"token": "", "usuarioId": number, "refreshToken": ""}>(`https://localhost:7039/Usuarios/LoginRefreshToken/${refreshToken}`, null)
+            .post<{"token": "", "usuarioId": number, "refreshToken": ""}>(`http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Usuarios/LoginRefreshToken/${refreshToken}`, null)
             .pipe(
                 tap({
                     next: (response) => {
@@ -64,7 +64,7 @@ export class AuthenticationService{
 
     signup(signupInput: signupInput){
         return this.httpClient
-            .post("https://localhost:7039/Usuarios/", signupInput)
+            .post("http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Usuarios/", signupInput)
     }
     
     logout(){

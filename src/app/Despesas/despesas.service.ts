@@ -17,7 +17,7 @@ export class DespesasService{
 
     CarregarDespesas(){
         return this.httpClient
-            .get<DespesasDto>(`https://localhost:7039/Despesas/BuscarPorUsuario/${this.authService.idUsuario}`)
+            .get<DespesasDto>(`http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Despesas/BuscarPorUsuario/${this.authService.idUsuario}`)
             .pipe(tap({
                 next: (desp) => {
                     this.despesas.set(desp.data)
@@ -27,7 +27,7 @@ export class DespesasService{
 
     ExcluirDespesa(id: number){
         return this.httpClient
-            .delete("https://localhost:7039/Despesas/" + id)
+            .delete("http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Despesas/" + id)
             .pipe(tap({
                 next: () => {
                     this.despesas.set(this.despesas().filter(d => d.id != id))
@@ -37,7 +37,7 @@ export class DespesasService{
 
     CriarDespesa(despesa: criarDespesaDto){
         return this.httpClient
-            .post("https://localhost:7039/Despesas/", despesa)
+            .post("http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Despesas/", despesa)
             .pipe(tap({
                 next: () => {
                     this.CarregarDespesas().subscribe();
@@ -47,7 +47,7 @@ export class DespesasService{
 
     EditarDespesa(id: number,despesa: editarDespesaDto){
         return this.httpClient
-            .put("https://localhost:7039/Despesas/" + id, despesa)
+            .put("http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Despesas/" + id, despesa)
             .pipe(tap({
                 next: () => {
                     this.CarregarDespesas().subscribe();
