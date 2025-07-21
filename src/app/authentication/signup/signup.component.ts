@@ -29,7 +29,7 @@ export class RegisterComponent {
     .subscribe(({
         next: () => {
           this.isLoading = false;
-          this.router.navigate(["/Login"]);
+          this.router.navigate(["/login"]);
           //Adicionar depois uma notificação de sucesso
         },
         error: (error: HttpErrorResponse) => {

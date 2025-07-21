@@ -21,11 +21,10 @@ export class AuthenticationService{
 
     login(loginInput: loginInput){
         return this.httpClient
-            .post<{"token": "", "usuarioId": number, "refreshToken": ""}>("http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Usuarios/Login", loginInput)
+            .post<{"token": "", "usuarioId": number, "refreshToken": ""}>("https://localhost:7039/Usuarios/Login", loginInput)
             .pipe(
                 tap({
                     next: (response) => {
-                        debugger;
                         const usuario = new user(response.token, response.usuarioId);
                         localStorage.setItem('jwtToken', response.token)
                         localStorage.setItem('UserId', response.usuarioId.toString())
@@ -38,7 +37,7 @@ export class AuthenticationService{
     refreshToken(){
         const refreshToken = this.getRefreshToken();
         return this.httpClient
-            .post<{"token": "", "usuarioId": number, "refreshToken": ""}>(`http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Usuarios/LoginRefreshToken/${refreshToken}`, null)
+            .post<{"token": "", "usuarioId": number, "refreshToken": ""}>(`https://localhost:7039/Usuarios/LoginRefreshToken/${refreshToken}`, null)
             .pipe(
                 tap({
                     next: (response) => {
@@ -58,13 +57,13 @@ export class AuthenticationService{
         if (token != null && userId != null){
             const usuario = new user(token, Number(userId));
             this.usuario.next(usuario);
-            this.router.navigate(["/Despesas"]);
+            this.router.navigate(["/despesas"]);
         }
     }
 
     signup(signupInput: signupInput){
         return this.httpClient
-            .post("http://controleseusgastos.sa-east-1.elasticbeanstalk.com/Usuarios/", signupInput)
+            .post("https://localhost:7039/Usuarios/", signupInput)
     }
     
     logout(){
@@ -72,7 +71,7 @@ export class AuthenticationService{
         localStorage.removeItem('jwtToken');
         localStorage.removeItem('UserId');
         localStorage.removeItem('RefreshToken');
-        this.router.navigate(["/Login"]);
+        this.router.navigate(["/login"]);
     }
 
     getAuthToken(){

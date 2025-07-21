@@ -13,24 +13,24 @@ const isAuthenticatedCanMatch: CanMatchFn = (route, segments) => {
     if(token != null && userId != null){
         return true;
     }
-    return new RedirectCommand(router.parseUrl("/Login"));
+    return new RedirectCommand(router.parseUrl("/login"));
     
 }
 
 export const routes: Routes = [
     {
-        path: "Login", component: LoginComponent
+        path: "login", component: LoginComponent
     },
     {
-        path:"Signup", component: RegisterComponent
+        path:"signup", component: RegisterComponent
     },
     {
-        path: "Despesas", component: ListaDespesasComponent, canMatch: [isAuthenticatedCanMatch]
+        path: "despesas", component: ListaDespesasComponent, canMatch: [isAuthenticatedCanMatch]
     },
     {
-        path: "Resumo", component: ResumoComponent, canMatch: [isAuthenticatedCanMatch]
+        path: "resumo", component: ResumoComponent, canMatch: [isAuthenticatedCanMatch]
     },
     {
-        path: "", redirectTo: 'Login', pathMatch: 'prefix'
+        path: "", redirectTo: 'login', pathMatch: 'prefix'
     }
 ];

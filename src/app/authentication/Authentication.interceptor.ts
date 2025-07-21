@@ -45,7 +45,7 @@ export class AuthenticationInterceptor implements HttpInterceptor {
               {
                 return throwError(()=>{ 
                   this.authService.logout();
-                  this.router.navigate(["/Login"]);
+                  this.router.navigate(["/login"]);
                 })
               })
           )

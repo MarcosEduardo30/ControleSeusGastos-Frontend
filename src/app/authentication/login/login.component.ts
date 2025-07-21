@@ -29,7 +29,7 @@ export class LoginComponent {
     .subscribe(({
         next: () => {
           this.isLoading = false;
-          this.router.navigate(["/Despesas"]);
+          this.router.navigate(["/despesas"]);
         },
         error: (error: any) => {
           this.errorMessage = "Usuário ou senha inválidos";
