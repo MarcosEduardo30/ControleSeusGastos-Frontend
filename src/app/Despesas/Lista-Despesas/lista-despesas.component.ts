@@ -22,7 +22,6 @@ export class ListaDespesasComponent implements OnInit{
   despesas = this.despesaService.despesasUsuario;
 
       ngOnInit(): void {
-        console.log("Entrou no on init")
           const sub = this.despesaService.CarregarDespesas().subscribe();
           this.destroyRef.onDestroy(() => sub.unsubscribe())
       }

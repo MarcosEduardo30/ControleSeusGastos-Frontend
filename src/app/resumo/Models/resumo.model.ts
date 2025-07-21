@@ -1,4 +1,4 @@
 export type resumo = {
-    TotalGastoMes: number,
-    TotalGastoAno: number
+    totalGastoMes: number,
+    totalGastoAno: number
 }

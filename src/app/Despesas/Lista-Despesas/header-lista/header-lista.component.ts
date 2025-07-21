@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { AuthenticationService } from '../../../authentication/Authentication.service';
 import { FormDespesaService } from '../../despesa-form/despesa-form.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header-lista',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './header-lista.component.html',
   styleUrl: './header-lista.component.css'
 })
