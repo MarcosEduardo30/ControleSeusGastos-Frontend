@@ -2,8 +2,12 @@
     <div class="dashboard">
         <p class="totalSpend annual">Total gasto no ano: {{resumo().totalGastoAno}}</p>
         <p class="totalSpend monthly">Total gasto no mês: {{resumo().totalGastoMes}}</p>
-        <p class="byMonth"> Gráfico de gastos por mês</p>
-        <p class="byCategory"> Gráfico de gastos por categoria</p>
+        <div class="byMonth">
+            <app-bar-chart [data]="gastoPorMesData" [label]="gastoPorMesLabel"></app-bar-chart>
+        </div>
+        <div class="byCategory">
+            
+        </div>
         <p class="byDay"> Gráfico de gastos por dia</p>
     </div>
 </div>
