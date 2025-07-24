@@ -2,10 +2,11 @@ import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { ResumoService } from './resumo.service';
 import { resumo } from './Models/resumo.model';
 import { BarChartComponent } from '../shared/bar-chart/bar-chart.component';
+import { PieChartComponent } from '../shared/pie-chart/pie-chart.component';
 
 @Component({
   selector: 'app-resumo',
-  imports: [BarChartComponent],
+  imports: [BarChartComponent, PieChartComponent],
   templateUrl: './resumo.component.html',
   styleUrl: './resumo.component.css'
 })
@@ -33,6 +34,9 @@ export class ResumoComponent implements OnInit {
   ;
 
   gastoPorMesLabel = "Gastos por mês"
+
+  categoriaData = [300, 100, 200]
+  categoriaLabels = ["Mercado", "Lazer", "Transporte"]
 
   ngOnInit(): void {
     const sub = this.resumoService.carregarResumo().subscribe()
