@@ -12,6 +12,16 @@
     height: 30px;
 }
 
+.analytics-img{
+    float: left;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
 @media (max-width: 600px) {
     .logout-img{
         margin-top: 15px;

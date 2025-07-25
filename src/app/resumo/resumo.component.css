@@ -9,7 +9,6 @@
 
 .dashboard{
     background-color: #F3F3F3;
-    margin-top: 5%;
     border: 2px solid black ;
     height: 90%;
     width: 75vw;
@@ -104,6 +103,17 @@ h1{
     font-family: 'Share Tech Mono'
 }
 
+.header{
+    text-align: left;
+}
+
+.header-img{
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
 @media(max-width: 600px){
 .dashboard{
     grid-template-rows: 3rem auto auto auto auto;

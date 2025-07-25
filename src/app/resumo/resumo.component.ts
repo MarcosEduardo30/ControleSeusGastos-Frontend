@@ -3,10 +3,11 @@ import { ResumoService } from './resumo.service';
 import { resumo } from './Models/resumo.model';
 import { BarChartComponent } from '../shared/bar-chart/bar-chart.component';
 import { PieChartComponent } from '../shared/pie-chart/pie-chart.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-resumo',
-  imports: [BarChartComponent, PieChartComponent],
+  imports: [BarChartComponent, PieChartComponent, RouterLink],
   templateUrl: './resumo.component.html',
   styleUrl: './resumo.component.css'
 })
