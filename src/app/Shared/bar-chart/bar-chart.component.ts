@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { Legend } from 'chart.js';
+import { Component, Input, OnInit } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -8,30 +7,23 @@ import { BaseChartDirective } from 'ng2-charts';
   templateUrl: './bar-chart.component.html',
   styleUrl: './bar-chart.component.css'
 })
-export class BarChartComponent {
-  @Input({required: true}) data: {x: string, y: any}[];
+export class BarChartComponent implements OnInit{
+  @Input({required: true}) data!: {x: string, y: any}[];
   @Input({required: true}) label!: string;
-  barChartData = {
-    datasets: [{
-      label: "Gastos por mês",
-      data: [
-        {x: 'Jan', y: 10000},
-        {x: 'Fev', y: 100},
-        {x: 'Mar', y: 1000},
-        {x: 'Abr', y: 1500},
-        {x: 'Mai', y: 530},
-        {x: 'Jun', y: 540},
-        {x: 'Jul', y: 10},
-        {x: 'Ago', y: 10},
-        {x: 'Set', y: 10},
-        {x: 'Out', y: 10},
-        {x: 'Nov', y: 10},
-        {x: 'Dez', y: 10},]
-    }]
-  }
+
+  barChartData: {datasets: {label: string, data: {x: string, y: any}[]}[]}
+
   options = {
     responsive: true,
     maintainAspectRatio: false
   }
 
+  ngOnInit(): void {
+    this.barChartData = {
+    datasets: [{
+      label: this.label,
+      data: this.data
+    }]
+  }
+  }
 }

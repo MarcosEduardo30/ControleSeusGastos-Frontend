@@ -4,18 +4,24 @@
     </div>
     <div class="dashboard">
         <h1>Resumo de Gastos</h1>
+        
         <div class="totalSpend annual">
             <p class="label">Total gasto no ano</p>
             <p class="value">R${{resumo().totalGastoAno}}</p>
         </div>
+
         <div class="totalSpend monthly">
             <p class="label">Total gasto no mês</p>
             <p class="value">R${{resumo().totalGastoMes}}</p>
         </div>
+
         <div class="byMonth">
             <p class="label">Gastos por mês</p>
-            <app-bar-chart [data]="gastoPorMesData" [label]="gastoPorMesLabel"></app-bar-chart>
+            @if (gastoPorMesData.length > 0) {
+                <app-bar-chart [data]="gastoPorMesData" [label]="gastoPorMesLabel"></app-bar-chart>
+            }
         </div>
+
         <div class="byCategory">
             <p class="label">Gastos por categoria (anual)</p>
             <app-pie-chart [data]="categoriaData" [labels]="categoriaLabels"></app-pie-chart>

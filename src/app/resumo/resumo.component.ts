@@ -18,29 +18,19 @@ export class ResumoComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
   resumo = this.resumoService.resumoUsuario;
 
-  //Variaveis temporárias, esses dados virão a partir do resumo depois
-  gastoPorMesData = [
-        {x: 'Jan', y: 10000},
-        {x: 'Fev', y: 100},
-        {x: 'Mar', y: 1000},
-        {x: 'Abr', y: 1500},
-        {x: 'Mai', y: 530},
-        {x: 'Jun', y: 540},
-        {x: 'Jul', y: 10},
-        {x: 'Ago', y: 10},
-        {x: 'Set', y: 10},
-        {x: 'Out', y: 10},
-        {x: 'Nov', y: 10},
-        {x: 'Dez', y: 10},]
-  ;
-
+  gastoPorMesData: {x: string, y: any}[] = [];
   gastoPorMesLabel = "Gastos por mês"
 
+  //Variaveis temporárias, esses dados virão a partir do resumo depois
   categoriaData = [300, 100, 200]
   categoriaLabels = ["Mercado", "Lazer", "Transporte"]
 
   ngOnInit(): void {
-    const sub = this.resumoService.carregarResumo().subscribe()
-    this.destroyRef.onDestroy(() => sub.unsubscribe());
+   const sub = this.resumoService.carregarResumo()
+    .subscribe(r => {
+        r.data.gastosPorMes.forEach(m => this.gastoPorMesData.push({x: m.mes,y:  m.valor}));
+      })
+
+  this.destroyRef.onDestroy(() => sub.unsubscribe());
   }
 }
