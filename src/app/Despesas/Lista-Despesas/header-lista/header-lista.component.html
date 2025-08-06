@@ -5,8 +5,10 @@
             <button (click)="onSortByClick(sortBy, categories)">Ordenar por</button>
             <div class="sortBy hide" #sortBy>
                 <ul>
-                    <li>Teste</li>
-                    <li>Teste 2</li>
+                    <li (click)="onSortBySelect('MaiorValor')">Maior valor</li>
+                    <li (click)="onSortBySelect('MenorValor')">Menor Valor</li>
+                    <li (click)="onSortBySelect('MaisRecente')">Mais recentes</li>
+                    <li (click)="onSortBySelect('MaisAntiga')">Mais Antigas</li>
                 </ul>
             </div>
         </div>

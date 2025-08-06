@@ -1,11 +1,11 @@
 <div class="list-container">
     <div>
-        <app-header-lista/>
+        <app-header-lista (sortBy)="onSortby($event)"/>
     </div>
     <div class="lista">
-        @if (despesas().length > 0) {
+        @if (despesas.length > 0) {
             <ul>
-                @for (desp of despesas(); track $index) {
+                @for (desp of despesas; track $index) {
                     <li>
                         <app-despesa [Despesa]="desp"/>
                     </li>

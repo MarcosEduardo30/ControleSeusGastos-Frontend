@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { AuthenticationService } from '../../../authentication/Authentication.service';
 import { FormDespesaService } from '../../despesa-form/despesa-form.service';
 import { RouterLink } from '@angular/router';
@@ -13,6 +13,7 @@ import { NgClass } from '@angular/common';
 export class HeaderListaComponent {
     private authService = inject(AuthenticationService);
     private formService = inject(FormDespesaService);
+    sortBy = output<string>();
    
       onLogoutClick(){
         this.authService.logout();
@@ -37,5 +38,9 @@ export class HeaderListaComponent {
         if(!sortBy.classList.contains("hide")){
           sortBy.classList.toggle("hide");
         }
+      }
+
+      onSortBySelect(filtro: string){
+        this.sortBy.emit(filtro);
       }
 }

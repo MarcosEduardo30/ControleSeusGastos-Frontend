@@ -4,6 +4,7 @@ import { DespesaComponent } from '../despesa/despesa.component';
 import { DespesasService } from '../despesas.service';
 import { FormDespesaService } from '../despesa-form/despesa-form.service';
 import { DespesaFormComponent } from '../despesa-form/despesa-form.component';
+import { despesa } from '../Models/despesa.model';
 
 @Component({
   selector: 'app-lista-despesas',
@@ -19,10 +20,16 @@ export class ListaDespesasComponent implements OnInit{
   nomeUsuario?: string;
   isFormsOpen = this.formDespesaService.isFormOpen;
 
-  despesas = this.despesaService.despesasUsuario;
+  // despesas = this.despesaService.despesasUsuario;
+  despesas: despesa[] = [];
 
       ngOnInit(): void {
-          const sub = this.despesaService.CarregarDespesas().subscribe();
+          const sub = this.despesaService.CarregarDespesas().subscribe(
+            value => {
+              this.despesas = value.data;
+            }
+          );
+
           this.destroyRef.onDestroy(() => sub.unsubscribe())
       }
 
@@ -30,5 +37,30 @@ export class ListaDespesasComponent implements OnInit{
         this.formDespesaService.openForm();
       }
 
-
+      onSortby(filtro: string){
+        switch(filtro){
+          case "MaiorValor":
+            this.despesas.sort((a, b) => b.valor - a.valor)
+            break;
+          case "MenorValor":
+            this.despesas.sort((a, b) => a.valor - b.valor)
+            break;
+          case "MaisRecente":
+            this.despesas.sort((a, b) => {
+              if (a.data > b.data){
+                return -1
+              }
+              return 1;
+            })
+            break;
+          case "MaisAntiga":
+            this.despesas.sort((a, b) => {
+              if (a.data < b.data){
+                return -1
+              }
+              return 1;
+            })
+            break;
+        }
+      }
 }
