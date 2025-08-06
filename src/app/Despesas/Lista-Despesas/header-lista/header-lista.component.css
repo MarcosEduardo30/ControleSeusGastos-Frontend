@@ -1,19 +1,69 @@
-.header-buttons{
+.header{
     text-align: center;
+}
+
+.filters{
+    display: inline-flex;
+    flex-direction: row;
+    float: left;
+    margin-top: 10px;
+}
+
+button{
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 10px;
+    padding-right: 10px;
+    background-color: #FFFFFF;
+    border: 1px rgb(210, 210, 210) solid;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: rgb(210, 234, 255);
+    transition: 0.6s;
+}
+
+.sortBy{
+    position: absolute;
+    flex-direction: column;
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 5px;
+    left: 10px;
+    padding: 0px 5px 15px 5px;
+    margin-top: 3px;
+}
+
+.categories{
+    position: absolute;
+    flex-direction: column;
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 0px 5px 15px 5px;
+    margin-top: 3px;
+}
+
+.hide{
+    display: none;
 }
 
 
 .logout-img{
     float: right;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 16px;
     margin-bottom: 15px;
+    margin-left: 15px;
     width: 30px;
     height: 30px;
 }
 
 .analytics-img{
-    float: left;
+    float: Right;
     cursor: pointer;
     margin-top: 15px;
     margin-bottom: 15px;

@@ -1,4 +1,28 @@
-<div class="header-buttons">
+<div class="header">
+
+    <div class="filters" #filters>
+        <div>
+            <button (click)="onSortByClick(sortBy, categories)">Ordenar por</button>
+            <div class="sortBy hide" #sortBy>
+                <ul>
+                    <li>Teste</li>
+                    <li>Teste 2</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <button (click)="onCategoriesClick(categories, sortBy)">Categorias</button>
+            <div class="categories hide" #categories>
+                <ul>
+                    <li>Filtro 1</li>
+                    <li>Filtro 2</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    
     <img src="logout.png" class="logout-img" (click)="onLogoutClick()">
     <a [routerLink]="['/resumo']">
         <img src="analytics.png" class="analytics-img">
