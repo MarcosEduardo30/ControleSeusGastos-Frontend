@@ -14,6 +14,7 @@ export class HeaderListaComponent {
     private authService = inject(AuthenticationService);
     private formService = inject(FormDespesaService);
     sortBy = output<string>();
+    categoryFilter = output<string>();
    
       onLogoutClick(){
         this.authService.logout();
@@ -42,5 +43,9 @@ export class HeaderListaComponent {
 
       onSortBySelect(filtro: string){
         this.sortBy.emit(filtro);
+      }
+
+      onCategorySelect(category: string){
+        this.categoryFilter.emit(category);
       }
 }

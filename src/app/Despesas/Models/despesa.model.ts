@@ -4,6 +4,6 @@ export type despesa = {
     valor: number,
     descricao: string,
     data: Date,
-    categoria_Nome: string,
+    categoria: string,
     usuario_Nome: string
 }

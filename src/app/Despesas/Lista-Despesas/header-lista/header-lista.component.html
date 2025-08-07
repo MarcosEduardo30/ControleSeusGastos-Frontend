@@ -17,8 +17,13 @@
             <button (click)="onCategoriesClick(categories, sortBy)">Categorias</button>
             <div class="categories hide" #categories>
                 <ul>
-                    <li>Filtro 1</li>
-                    <li>Filtro 2</li>
+                    <li (click)="onCategorySelect('Todas')">Todas</li>
+                    <li (click)="onCategorySelect('Nenhuma')">Nenhuma</li>
+                    <li (click)="onCategorySelect('Alimentacao')">Alimentação</li>
+                    <li (click)="onCategorySelect('Lazer')">Lazer</li>
+                    <li (click)="onCategorySelect('Roupas')">Roupas</li>
+                    <li (click)="onCategorySelect('Saude')">Saude</li>
+                    <li (click)="onCategorySelect('Outra')">Outra</li>
                 </ul>
             </div>
         </div>

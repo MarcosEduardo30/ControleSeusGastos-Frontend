@@ -20,7 +20,6 @@ export class ListaDespesasComponent implements OnInit{
   nomeUsuario?: string;
   isFormsOpen = this.formDespesaService.isFormOpen;
 
-  // despesas = this.despesaService.despesasUsuario;
   despesas: despesa[] = [];
 
       ngOnInit(): void {
@@ -60,6 +59,34 @@ export class ListaDespesasComponent implements OnInit{
               }
               return 1;
             })
+            break;
+        }
+      }
+
+      onCategoryFilter(category: string){
+        console.log(this.despesas);
+        switch (category){
+          case "Todas":
+            this.despesas = this.despesaService.despesasUsuario()
+            break
+          case "Nenhuma":
+            console.log(this.despesaService.despesasUsuario().filter((d) => d.valor > 50))
+            this.despesas = this.despesaService.despesasUsuario().filter((d) => d.categoria == "Nenhuma")
+            break;
+          case "Alimentacao":
+            this.despesas = this.despesaService.despesasUsuario().filter((d) => d.categoria == "Alimentacao")
+            break;
+          case "Lazer":
+            this.despesas = this.despesaService.despesasUsuario().filter((d) => d.categoria == "Lazer")
+            break;
+          case "Roupas":
+            this.despesas = this.despesaService.despesasUsuario().filter((d) => d.categoria == "Roupas")
+            break;
+          case "Saude":
+            this.despesas = this.despesaService.despesasUsuario().filter((d) => d.categoria == "Saude")
+            break;
+          case "Outra":
+            this.despesas = this.despesaService.despesasUsuario().filter((d) => d.categoria == "Outra")
             break;
         }
       }

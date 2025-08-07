@@ -1,6 +1,6 @@
 <div class="list-container">
     <div>
-        <app-header-lista (sortBy)="onSortby($event)"/>
+        <app-header-lista (sortBy)="onSortby($event)" (categoryFilter)="onCategoryFilter($event)"/>
     </div>
     <div class="lista">
         @if (despesas.length > 0) {
