@@ -14,15 +14,24 @@ const isAuthenticatedCanMatch: CanMatchFn = (route, segments) => {
         return true;
     }
     return new RedirectCommand(router.parseUrl("/login"));
-    
+}
+
+const isNotAuthenticatedCanMatch: CanMatchFn = (route, segments) => {
+    const router = inject(Router);
+    const token = localStorage.getItem("jwtToken");
+    const userId = localStorage.getItem("UserId");
+    if(token == null || userId == null){
+        return true;
+    }
+    return new RedirectCommand(router.parseUrl("/despesas"));
 }
 
 export const routes: Routes = [
     {
-        path: "login", component: LoginComponent
+        path: "login", component: LoginComponent, canMatch: [isNotAuthenticatedCanMatch]
     },
     {
-        path:"signup", component: RegisterComponent
+        path:"signup", component: RegisterComponent, canMatch: [isNotAuthenticatedCanMatch]
     },
     {
         path: "despesas", component: ListaDespesasComponent, canMatch: [isAuthenticatedCanMatch]
@@ -32,5 +41,8 @@ export const routes: Routes = [
     },
     {
         path: "", redirectTo: 'login', pathMatch: 'prefix'
+    },
+    {
+        path: "**", redirectTo: 'login'
     }
 ];

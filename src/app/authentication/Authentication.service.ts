@@ -57,7 +57,8 @@ export class AuthenticationService{
         if (token != null && userId != null){
             const usuario = new user(token, Number(userId));
             this.usuario.next(usuario);
-            this.router.navigate(["/despesas"]);
+            debugger;
+            this.router.navigate([window.location.pathname]);
         }
     }
 
