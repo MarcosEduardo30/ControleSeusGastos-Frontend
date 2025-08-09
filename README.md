@@ -34,9 +34,7 @@
 
 <h1>Melhorias futuras</h1>
 <ul>
-  <li>Dashboard com dados do usuário</li>
   <li>Filtragem de gastos por categoria e periodo</li>
-  <li>Maior abrangencia nos testes automatizados</li>
 </ul>
 
 <h1>Funcionalidades</h1>
