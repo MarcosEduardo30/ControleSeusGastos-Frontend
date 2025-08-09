@@ -51,6 +51,22 @@
                         required
                     >
                 </div>
+
+                <div class="form-item">
+                    <label for="categoria" class="form-label">Categoria: </label>
+                    <select 
+                    class="form-input" 
+                    name="categoria" 
+                    id="categoria" 
+                    [(ngModel)]="categoria">
+                        <option value="Nenhuma">Nenhuma</option>
+                        <option value="Alimentacao">Alimentação</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Roupas">Roupas</option>
+                        <option value="Saude">Saude</option>
+                        <option value="Outra">Outra</option>
+                    </select>
+                </div>
             </div>
 
 

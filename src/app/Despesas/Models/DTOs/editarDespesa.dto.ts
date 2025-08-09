@@ -3,4 +3,5 @@ export type editarDespesaDto = {
     Nome: string,
     Descricao?: string
     Data: Date
+    Categoria: string
 }

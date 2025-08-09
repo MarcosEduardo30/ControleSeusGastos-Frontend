@@ -64,13 +64,11 @@ export class ListaDespesasComponent implements OnInit{
       }
 
       onCategoryFilter(category: string){
-        console.log(this.despesas);
         switch (category){
           case "Todas":
             this.despesas = this.despesaService.despesasUsuario()
             break
           case "Nenhuma":
-            console.log(this.despesaService.despesasUsuario().filter((d) => d.valor > 50))
             this.despesas = this.despesaService.despesasUsuario().filter((d) => d.categoria == "Nenhuma")
             break;
           case "Alimentacao":

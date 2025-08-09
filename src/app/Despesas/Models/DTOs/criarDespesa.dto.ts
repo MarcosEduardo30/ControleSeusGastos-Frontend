@@ -3,5 +3,6 @@ export type criarDespesaDto = {
     Nome: string,
     Descricao?: string
     Usuario_Id: number,
-    Data: Date
+    Data: Date,
+    Categoria: string
 }

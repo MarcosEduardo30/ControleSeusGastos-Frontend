@@ -25,6 +25,7 @@ export class DespesaFormComponent{
   data!: string;
   descricao: string = "";
   nome: string = "";
+  categoria: string = "Nenhuma";
 
   isEdit = this.despesaFormService.isEdit;
   isFormOpen = this.despesaFormService.isFormOpen;
@@ -36,6 +37,7 @@ export class DespesaFormComponent{
             this.data = this.converteData(new Date(this.despesaFormService.despesaCarregada.data));
             this.descricao = this.despesaFormService.despesaCarregada.descricao;
             this.nome = this.despesaFormService.despesaCarregada.nome;
+            this.categoria = this.despesaFormService.despesaCarregada.categoria;
     }
     });
 }
@@ -52,6 +54,7 @@ export class DespesaFormComponent{
           Data: this.Despesaform.value.data,
           Descricao: this.Despesaform.value.descricao,
           Nome: this.Despesaform.value.nome,
+          Categoria: this.Despesaform.value.categoria
         }
         this.despesaService.EditarDespesa(this.despesaFormService.despesaCarregada?.id!, despesa).subscribe();
       }
@@ -61,9 +64,9 @@ export class DespesaFormComponent{
           Data: this.Despesaform.value.data,
           Descricao: this.Despesaform.value.descricao,
           Nome: this.Despesaform.value.nome,
-          Usuario_Id: this.authService.idUsuario
+          Usuario_Id: this.authService.idUsuario,
+          Categoria: this.Despesaform.value.categoria
         };
-
         this.despesaService.CriarDespesa(despesa).subscribe();
       }
 
